@@ -27,8 +27,7 @@ because you wondering if that you are developing is not already built somewhere 
 
 An other reason is to raise awareness the developers of importance of correctly document the inputs of theirs components.
 
-In last, you have sometimes your own component library that we would like shared with a nice showcase easily to others developers or
-on UX Designer ;)
+In last, you have sometimes your own component library that you would like shared with a nice showcase easily to others developers or UX Designers ;)
 
 How to contribute ?
 -------------------
