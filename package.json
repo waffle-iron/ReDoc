@@ -1,0 +1,42 @@
+{
+  "name": "sgr",
+  "version": "0.0.1",
+  "description": "This project aims to build automaticaly a showcase based component like Reactjs, Angular 2 or Polymer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/js-republic/SGR.git"
+  },
+  "keywords": [
+    "Documentation",
+    "Showcase",
+    "Generator",
+    "React",
+    "Angular 2",
+    "VueJS",
+    "Polymer"
+  ],
+  "author": "Mathieu Breton<mathieu.breton@js-republic.com>",
+  "contributors": [
+    "Pierrick Turelier<pierrick.turelier@js-republic.com>",
+    "Vincent Cordobes<vincent.cordobes@js-republic.com>",
+    "Mathieu Breton<mathieu.breton@js-republic.com>"
+  ],
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/js-republic/SGR/issues"
+  },
+  "homepage": "https://github.com/js-republic/SGR#readme",
+  "devDependencies": {
+    "cz-conventional-changelog": "^1.2.0",
+    "eslint": "^3.10.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
