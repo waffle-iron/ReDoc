@@ -27,10 +27,10 @@ How the project view works
 
 In the [project view](https://github.com/js-republic/SGR/projects/1), you can see four columns : *Ideation* -> *Todos* -> *Work in progress* -> *Done*
 
-- *Ideation* : Is the step where Epics are debated. The Epic come from the core-commiter team or are voted on [Feathub](http://feathub.com/js-republic/SGR).
+- *Ideation* : Is the step where Epics are debated. The Epic come from the core team or are voted on [Feathub](http://feathub.com/js-republic/SGR).
 An Epic will list all stories attached to him.
 - *Todos* : In this step, the epics, and the stories a defined and wait for contributor (maybe you :tada:). 
-If some want work on a stories, it can add a comment on it and core-team will pass the story in next column.
+If someone wants work on a story, it can add a comment on it and core team will pass the story in next column.
 - *Work in progress* : Contains all stories currently developed. To be done, each story must be implemented in a pull-request, have well designed commit history, covered by unit tests and finally submit and reviewed by the core commiter team.
 - *Done* : The final step, this column contains all finished stories
 
