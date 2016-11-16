@@ -5,7 +5,7 @@ SGR Project
 [![License: GPL v3](https://img.shields.io/badge/license-GPL--V3-blue.svg)](https://www.gnu.org/licenses/quick-guide-gplv3.fr.html)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
-    :rocket: :construction: Project in construction :construction::rocket:
+:rocket: :construction: Project in construction :construction::rocket:
 
 The goal of this project is to generate automatically a showcase of components
 contained in a project. Originally designed to work with React.js, it will aim all 
