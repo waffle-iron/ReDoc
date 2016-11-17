@@ -18,3 +18,6 @@ node_modules
 # IDE files
 *.iml
 .idea
+
+# macOS stuffs
+.DS_Store
