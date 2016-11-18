@@ -31,8 +31,8 @@
   },
   "homepage": "https://github.com/js-republic/SGR#readme",
   "devDependencies": {
-    "cz-conventional-changelog": "^1.2.0",
-    "eslint": "^3.10.2"
+    "cz-conventional-changelog": "1.2.0",
+    "eslint": "3.10.2"
   },
   "config": {
     "commitizen": {
