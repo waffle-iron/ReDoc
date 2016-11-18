@@ -4,7 +4,7 @@
   "description": "This project aims to build automaticaly a showcase based component like Reactjs, Angular 2 or Polymer",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava"
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,7 @@
   },
   "homepage": "https://github.com/js-republic/SGR#readme",
   "devDependencies": {
+    "ava": "0.17.0",
     "cz-conventional-changelog": "1.2.0",
     "eslint": "3.10.2"
   },
@@ -38,5 +39,16 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "ava": {
+    "files": [
+      "tests/**/*.js"
+    ],
+    "source": [
+      "src/**/*.js"
+    ],
+    "concurrency": 5,
+    "failFast": true,
+    "powerAssert": true
   }
 }
