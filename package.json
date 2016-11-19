@@ -4,7 +4,9 @@
   "description": "This project aims to build automaticaly a showcase based component like Reactjs, Angular 2 or Polymer",
   "main": "index.js",
   "scripts": {
-    "test": "ava"
+    "pretest": "npm run lint",
+    "test": "ava",
+    "lint": "eslint ./"
   },
   "repository": {
     "type": "git",
@@ -32,13 +34,11 @@
   "homepage": "https://github.com/js-republic/SGR#readme",
   "devDependencies": {
     "ava": "0.17.0",
-    "cz-conventional-changelog": "1.2.0",
-    "eslint": "3.10.2"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
+    "eslint": "3.10.2",
+    "eslint-config-airbnb": "13.0.0",
+    "eslint-plugin-jsx-a11y": "2.2.3",
+    "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-react": "6.7.1"
   },
   "ava": {
     "files": [
@@ -50,5 +50,15 @@
     "concurrency": 5,
     "failFast": true,
     "powerAssert": true
+  },
+  "eslintConfig": {
+    "env": {
+      "node": true
+    },
+    "extends": "airbnb",
+    "rules": {
+      "no-plusplus": 0,
+      "no-shadow": 0
+    }
   }
 }
