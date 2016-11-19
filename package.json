@@ -34,18 +34,11 @@
   "homepage": "https://github.com/js-republic/SGR#readme",
   "devDependencies": {
     "ava": "0.17.0",
-    "babel-eslint": "7.1.1",
-    "cz-conventional-changelog": "1.2.0",
     "eslint": "3.10.2",
     "eslint-config-airbnb": "13.0.0",
     "eslint-plugin-jsx-a11y": "2.2.3",
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-react": "6.7.1"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   },
   "ava": {
     "files": [
@@ -59,10 +52,13 @@
     "powerAssert": true
   },
   "eslintConfig": {
-    "parser": "babel-eslint",
     "env": {
       "node": true
     },
-    "extends": "airbnb"
+    "extends": "airbnb",
+    "rules": {
+      "no-plusplus": 0,
+      "no-shadow": 0
+    }
   }
 }
