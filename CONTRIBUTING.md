@@ -90,6 +90,7 @@ of commit :
  - *docs* when it concerns documentation
  - *refactor* when you make a refactoring
  - *chlore* when it's a configuration update without impact on behaviour
+ - *style* for code style (formatting, missing semi colons, etc... no code change)
 
 Good
 ```

@@ -11,7 +11,7 @@
     "subject_must_not_end_with_dot": true,
     "body_lines_must_be_shorter_than": 73,
     "subject_must_include_prefix": {
-      "prefixes": ["feat", "fix", "docs", "refactor", "chlore"],
+      "prefixes": ["feat", "fix", "docs", "refactor", "chlore", "style"],
       "require_after_prefix": "(*): "
     }
   },
