@@ -32,6 +32,9 @@
     "url": "https://github.com/js-republic/SGR/issues"
   },
   "homepage": "https://github.com/js-republic/SGR#readme",
+  "dependencies": {
+    "commander": "2.9.0"
+  },
   "devDependencies": {
     "ava": "0.17.0",
     "eslint": "3.10.2",
