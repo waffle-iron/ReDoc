@@ -33,7 +33,8 @@
   },
   "homepage": "https://github.com/js-republic/SGR#readme",
   "dependencies": {
-    "winston": "2.3.0"
+    "winston": "2.3.0",
+    "commander": "2.9.0"
   },
   "devDependencies": {
     "ava": "0.17.0",
