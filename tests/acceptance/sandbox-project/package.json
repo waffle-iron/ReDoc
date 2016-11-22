@@ -1,0 +1,10 @@
+{
+  "name": "sandbox-project",
+  "version": "0.0.0",
+  "description": "This project is only for test purpose",
+  "repository": "",
+  "license":"UNLICENSED",
+  "scripts":{
+    "sgr" : "sgr"
+  }
+}
