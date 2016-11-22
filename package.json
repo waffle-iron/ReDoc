@@ -2,10 +2,14 @@
   "name": "sgr",
   "version": "0.0.1",
   "description": "This project aims to build automaticaly a showcase based component like Reactjs, Angular 2 or Polymer",
-  "main": "index.js",
+  "main": "src/index.js",
+  "bin": {
+    "sgr": "src/sgr.js"
+  },
   "scripts": {
     "pretest": "npm run lint",
-    "test": "ava",
+    "test": "ava tests/unit/**/*.spec.js",
+    "test:acceptance": "ava tests/acceptance/**/*.spec.js",
     "lint": "eslint ./"
   },
   "repository": {
@@ -45,9 +49,6 @@
     "eslint-plugin-react": "6.7.1"
   },
   "ava": {
-    "files": [
-      "tests/**/*.js"
-    ],
     "source": [
       "src/**/*.js"
     ],
