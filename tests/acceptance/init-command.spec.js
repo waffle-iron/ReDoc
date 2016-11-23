@@ -8,6 +8,6 @@ test.before(() => {
   run('npm link ../../../');
 });
 
-test('should return a correction version number', (t) => {
+test('should return a correct version number', (t) => {
   t.is(stdout('npm run sgr -- --version'), '0.0.1');
 });
