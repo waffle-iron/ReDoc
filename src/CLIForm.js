@@ -1,8 +1,10 @@
 const Configuration = require('./models/Configuration');
+const readline = require('readline');
 const { Question, MultipleResponseQuestion } = require('./models/QuestionTypes');
 
+const rl = readline.createInterface(process.stdin, process.stdout);
 
-class ConfigurationBuilder {
+class CLIForm {
 
   constructor() {
     this.currentQuestionIdx = 0;
@@ -12,9 +14,9 @@ class ConfigurationBuilder {
       new Question(
         'Where is located your projet ?',
         './',
-        ((val) => {
+        (val) => {
           this.configuration.inputDir = val;
-        })//eslint-disable-line
+        }//eslint-disable-line
       ),
       new Question(
         'Where the documentation should be generated ?',
@@ -48,13 +50,25 @@ class ConfigurationBuilder {
     ];
   }
 
-  hasNext() {
+  hasNextQuestion() {
     return this.currentQuestionIdx < this.questions.length;
   }
 
-  next() {
+  getNextQuestion() {
     return this.questions[this.currentQuestionIdx++];
+  }
+
+  askQuestions(onFormFinished) {
+    if (this.hasNextQuestion()) {
+      const nextQuestion = this.getNextQuestion();
+      rl.question(`${nextQuestion.query}\t`, (val) => {
+        nextQuestion.handler(val);
+        this.askQuestions(onFormFinished);
+      });
+    } else {
+      onFormFinished(this.configuration);
+    }
   }
 }
 
-module.exports = ConfigurationBuilder;
+module.exports = CLIForm;
