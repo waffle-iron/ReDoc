@@ -1,7 +1,7 @@
-import { execSync } from 'child_process';
+import { execSync, spawn } from 'child_process';
 import path from 'path';
 
-const run = (command) => {
+const runSync = (command) => {
   let stdout;
   try {
     stdout = execSync(command, { cwd: path.resolve(__dirname, 'sandbox-project') }).toString();
@@ -11,10 +11,7 @@ const run = (command) => {
   return stdout;
 };
 
-const stdout = nodeResult => run(nodeResult)
-  .split('\n')
-  .filter(line => !/^[>|\\n]/.test(line))
-  .map(line => line.replace(/\\n/g, ''))
-  .join('');
+const start = (command, options) => spawn(command, options, { cwd: path.resolve(__dirname, 'sandbox-project') });
 
-export { run, stdout }; // eslint-disable-line
+
+export { runSync, start }; // eslint-disable-line

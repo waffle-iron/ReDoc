@@ -1,6 +1,6 @@
 const Configuration = require('./models/Configuration');
-const readline = require('readline');
 const { Question, MultipleResponseQuestion } = require('./models/QuestionTypes');
+const readline = require('readline');
 
 const rl = readline.createInterface(process.stdin, process.stdout);
 
@@ -12,7 +12,7 @@ class CLIForm {
 
     this.questions = [
       new Question(
-        'Where is located your projet ?',
+        'Where is located your project ?',
         './',
         (val) => {
           this.configuration.inputDir = val;
@@ -22,14 +22,14 @@ class CLIForm {
         'Where the documentation should be generated ?',
         './component-docs',
         (val) => {
-          this.configuration.inputDir = val;
+          this.configuration.outputDir = val;
         }//eslint-disable-line
       ),
       new Question(
         'Which pattern do you want ignore ?',
         './node_module/*',
         (val) => {
-          this.configuration.inputDir = val;
+          this.configuration.ignore = val;
         }//eslint-disable-line
       ),
       new MultipleResponseQuestion(
@@ -37,14 +37,14 @@ class CLIForm {
         'react',
         ['react', 'angular2', 'vuejs', 'polymer'],
         (val) => {
-          this.configuration.inputDir = val;
+          this.configuration.type = val;
         }//eslint-disable-line
       ),
       new Question(
         'Path of an additional CSS file ?',
         '',
         (val) => {
-          this.configuration.inputDir = val;
+          this.configuration.additionalCssFile = val;
         }//eslint-disable-line
       ),
     ];
