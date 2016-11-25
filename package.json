@@ -40,13 +40,15 @@
     "commander": "2.9.0"
   },
   "devDependencies": {
+    "rimraf": "2.5.4",
     "ava": "0.17.0",
     "babel-preset-es2015-node4": "2.1.0",
     "eslint": "3.10.2",
     "eslint-config-airbnb": "13.0.0",
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-jsx-a11y": "2.2.3",
-    "eslint-plugin-react": "6.7.1"
+    "eslint-plugin-react": "6.7.1",
+    "ncp": "2.0.0"
   },
   "ava": {
     "source": [
