@@ -1,15 +1,13 @@
-const Configuration = require('./models/Configuration');
-const { Question, MultipleResponseQuestion } = require('./models/QuestionTypes');
 const readline = require('readline');
+const Configuration = require('../models/configuration');
+const { Question, MultipleResponseQuestion } = require('../models/question-types');
 
 const rl = readline.createInterface(process.stdin, process.stdout);
 
-class CLIForm {
-
+class Form {
   constructor() {
     this.currentQuestionIdx = 0;
     this.configuration = new Configuration();
-
     this.questions = [
       new Question(
         'Where is located your project ?',
@@ -27,7 +25,7 @@ class CLIForm {
       ),
       new Question(
         'Which pattern do you want ignore ?',
-        './node_module/*',
+        './node_module/**',
         (val) => {
           this.configuration.ignore = val;
         }//eslint-disable-line
@@ -60,9 +58,9 @@ class CLIForm {
 
   askQuestions(onFormFinished) {
     if (this.hasNextQuestion()) {
-      const nextQuestion = this.getNextQuestion();
-      rl.question(`${nextQuestion.query}\t`, (val) => {
-        nextQuestion.handler(val);
+      const question = this.getNextQuestion();
+      rl.question(`${question.query}\t`, (answer) => {
+        question.save(answer);
         this.askQuestions(onFormFinished);
       });
     } else {
@@ -71,4 +69,4 @@ class CLIForm {
   }
 }
 
-module.exports = CLIForm;
+module.exports = Form;

@@ -14,6 +14,13 @@ const execSyncIn = command => execSync(command, IN_SANDBOX_OPT).toString();
 
 const spawnIn = (command, options) => spawn(command, options, IN_SANDBOX_OPT);
 
+const init = (answers) => {
+  const initProcess = spawnIn('sgr', ['init']);
+  let idx = 0;
+  initProcess.stdout.on('data', () => initProcess.stdin.write(`${answers[idx++]}\n`));
+  return initProcess;
+};
+
 const getPackageJson = () => JSON.parse(fs.readFileSync(path.join(SANDBOX_PROJECT_PATH, 'package.json')));
 
 const setup = (cb) => {
@@ -32,6 +39,7 @@ const destroy = () => rimraf.sync(SANDBOX_PROJECT_PATH);
 export {
   execSyncIn,
   spawnIn,
+  init,
   setup,
   destroy,
   getPackageJson,
