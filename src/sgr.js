@@ -4,7 +4,7 @@ const program = require('commander');
 const fs = require('fs');
 const path = require('path');
 const packageJson = require('../package.json');
-const CLIForm = require('./CLIForm');
+const Form = require('./CLI/form');
 
 program
   .description('Component showcase generator')
@@ -14,7 +14,7 @@ program
   .command('init')
   .description('initialize configuration')
   .action(() => {
-    const cliForm = new CLIForm();
+    const cliForm = new Form();
     cliForm.askQuestions((configuration) => {
       const packageToUpdatePath = path.join(process.cwd(), 'package.json');
       const packageToUpdate= JSON.parse(fs.readFileSync(packageToUpdatePath));

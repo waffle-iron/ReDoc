@@ -4,6 +4,10 @@ class Question {
     this.defaultValue = defaultValue;
     this.handler = handler;
   }
+  save(answer) {
+    const val = answer === '' ? this.defaultValue : answer;
+    this.handler(val);
+  }
 }
 
 class MultipleResponseQuestion extends Question {
