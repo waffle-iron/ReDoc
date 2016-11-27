@@ -6,13 +6,13 @@ const questions = [
     type: 'input',
     name: 'inputDir',
     message: 'Project directory: ',
-    default: '.\/',
+    default: './',
   },
   {
     type: 'input',
     name: 'outputDir',
     message: 'Documentation output: ',
-    default: '.\/component-docs',
+    default: './component-docs',
   },
   {
     type: 'input',
@@ -28,7 +28,7 @@ const questions = [
     default: ['react'],
     validate: (answer) => {
       if (answer.length < 1) {
-        return 'You must choose one';
+        return 'You must at least choose one';
       }
       return true;
     },
@@ -42,6 +42,5 @@ const questions = [
 ];
 
 inquirer.prompt(questions).then((answers) => {
-  // Use user feedback for... whatever!!
-  console.log(`${chalk.green('✨ Congratulatio !')} you can find the generated documentation in ${chalk.red(answers.outputDir)}`);
+  console.log(`${chalk.green('✨ Congratulation!')} you can find the generated documentation in ${chalk.red(answers.outputDir)}`);
 });
