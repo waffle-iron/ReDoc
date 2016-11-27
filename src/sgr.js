@@ -1,10 +1,8 @@
 #!/usr/bin/env node
 
 const program = require('commander');
-const fs = require('fs');
-const path = require('path');
 const packageJson = require('../package.json');
-const Form = require('./CLI/form');
+const init = require('./cli/init');
 
 program
   .description('Component showcase generator')
@@ -13,16 +11,7 @@ program
 program
   .command('init')
   .description('initialize configuration')
-  .action(() => {
-    const cliForm = new Form();
-    cliForm.askQuestions((configuration) => {
-      const packageToUpdatePath = path.join(process.cwd(), 'package.json');
-      const packageToUpdate= JSON.parse(fs.readFileSync(packageToUpdatePath));
-      packageToUpdate.sgrConfig = configuration;
-      fs.writeFileSync(packageToUpdatePath, JSON.stringify(packageToUpdate, null, '  '));
-      process.exit();
-    });
-  });
+  .action(init);
 
 program
   .command('run')

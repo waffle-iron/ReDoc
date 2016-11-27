@@ -1,6 +1,11 @@
 const inquirer = require('inquirer');
 const chalk = require('chalk');
+const fs = require('fs');
+const path = require('path');
 
+const Configuration = require('../models/configuration');
+
+// Inquirer questions
 const questions = [
   {
     type: 'input',
@@ -36,11 +41,44 @@ const questions = [
   {
     type: 'input',
     name: 'cssPath',
-    message: 'Additional CSS file: ',
+    message: 'Path to an additional CSS file: ',
     default: '',
   },
 ];
 
-inquirer.prompt(questions).then((answers) => {
-  console.log(`${chalk.green('✨ Congratulation!')} you can find the generated documentation in ${chalk.red(answers.outputDir)}`);
-});
+/**
+ * Update `package.json` with the given configuration
+ * @params {Configuration} conf the configuration to write
+ */
+function updatePackageJSON(conf) {
+  const packageToUpdatePath = path.join(process.cwd(), 'package.json');
+  const packageToUpdate = JSON.parse(fs.readFileSync(packageToUpdatePath));
+  packageToUpdate.sgrConfig = conf;
+  fs.writeFileSync(packageToUpdatePath, JSON.stringify(packageToUpdate, null, '  '));
+}
+
+/**
+ * entry point for `sgr init`
+ */
+function init() {
+  return inquirer.prompt(questions).then((answers) => {
+    const conf = new Configuration(
+      answers.inputDir,
+      answers.outputDir,
+      answers.patternToIgnore,
+      answers.componentsType,
+      answers.cssPath
+    );
+
+    updatePackageJSON(conf);
+
+    console.log(`
+      ${chalk.green('✨ Congratulations!')}
+      The configuration is located in your ${chalk.bold('package.json')}.
+      You can now run ${chalk.bold('sgr run')} to scan your project.
+    `);
+  });
+}
+
+
+module.exports = init;
