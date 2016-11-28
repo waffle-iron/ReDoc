@@ -4,6 +4,10 @@ import fs from 'fs';
 import rimraf from 'rimraf';
 import { ncp } from 'ncp';
 
+import loggers from '../../../src/logger';
+
+const logger = loggers.get('sgr');
+
 ncp.limit = 16;
 
 const TEMPLATE_PROJECT_PATH = path.join(__dirname, 'sandbox-project-template');
@@ -28,7 +32,7 @@ const setup = (cb) => {
     try {
       execSyncIn('npm link ../../../../');
     } catch (e) {
-      // console.error(e);
+      logger.error(e);
     } finally {
       cb();
     }

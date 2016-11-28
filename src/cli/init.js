@@ -3,6 +3,7 @@ const chalk = require('chalk');
 const fs = require('fs');
 const path = require('path');
 
+const logger = require('../logger').get('cli');
 const Configuration = require('../models/configuration');
 
 // Inquirer questions
@@ -27,8 +28,8 @@ const questions = [
   },
   {
     type: 'checkbox',
-    name: 'componentsType',
-    message: 'King of component: ',
+    name: 'componentTypes',
+    message: 'Kind of component: ',
     choices: ['react', 'angular2', 'vuejs', 'polymer'],
     default: ['react'],
     validate: (answer) => {
@@ -66,13 +67,13 @@ function init() {
       answers.inputDir,
       answers.outputDir,
       answers.patternToIgnore,
-      answers.componentsType,
-      answers.cssPath
+      answers.componentTypes,
+      answers.cssPath // eslint-disable-line
     );
 
     updatePackageJSON(conf);
 
-    console.log(`
+    logger.info(`
       ${chalk.green('✨ Congratulations!')}
       The configuration is located in your ${chalk.bold('package.json')}.
       You can now run ${chalk.bold('sgr run')} to scan your project.
